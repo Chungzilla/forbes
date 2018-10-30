@@ -1,5 +1,19 @@
 // alert("I'm working!!!")
 
+let xhr = new XMLHttpRequest();
+
+xhr.onload = () =>{
+    if (xhr.status >= 200 && xhr.status < 300){
+        console.log('success!, xhr');
+    } else {
+        console.log('This request failed.')
+    }
+    console.log('This always runs...')
+}
+
+xhr.open('GET', 'https://api.unsplash.com/photos/?client_id=UNSPLASH_API')
+xhr.send();
+
 let imagesOnPage = new Array();
 let currentPage = 1;
 let imagesPerPage = 10;
