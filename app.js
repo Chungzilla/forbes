@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 // alert("I'm working!!!")
 
 let xhr = new XMLHttpRequest();
@@ -11,7 +13,7 @@ xhr.onload = () =>{
     console.log('This always runs...')
 }
 
-xhr.open('GET', 'https://api.unsplash.com/photos/?client_id=UNSPLASH_API')
+xhr.open('GET', 'https://api.giphy.com/v1/gifs/cats&api_key=GIPHY2_API&limit=50')
 xhr.send();
 
 let imagesOnPage = new Array();
