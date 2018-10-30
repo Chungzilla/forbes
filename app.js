@@ -27,7 +27,7 @@ const createPage = () => {
     }
     imagesOnPage = events.slice(firstImage, lastImage);
     showImages();
-    // check();
+    check();
 }
 
 const showImages = () => {
@@ -36,14 +36,13 @@ const showImages = () => {
     }
 }
 
-// function check() {
-//     document.getElementById("next").disabled = currentPage == numberOfPages ? true : false;
-//     document.getElementById("previous").disabled = currentPage == 1 ? true : false;
-//     document.getElementById("first").disabled = currentPage == 1 ? true : false;
-//     document.getElementById("last").disabled = currentPage == numberOfPages ? true : false;
-//   }
+const check = () => {
+    document.getElementById("next").disabled = currentPage == numOfPages ? true : false;
+    document.getElementById("previous").disabled = currentPage == 1 ? true : false;
 
-const start = () => {createPage()};
+  }
 
-// let allPages = totalPages; 
+const start = () => createPage();
+
+let numOfPages = totalPages(); 
 window.onload = start;
