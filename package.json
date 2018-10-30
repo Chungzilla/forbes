@@ -1,0 +1,20 @@
+{
+  "name": "forbes-jc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chungzilla/forbes.git"
+  },
+  "author": "Chungzilla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chungzilla/forbes/issues"
+  },
+  "homepage": "https://github.com/Chungzilla/forbes#readme"
+}
