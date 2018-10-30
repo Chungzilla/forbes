@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/Chungzilla/forbes/issues"
   },
-  "homepage": "https://github.com/Chungzilla/forbes#readme"
+  "homepage": "https://github.com/Chungzilla/forbes#readme",
+  "dependencies": {}
 }
