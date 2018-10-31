@@ -10,20 +10,20 @@ let showGif = () => {
     //Creates request
     let xhr = new XMLHttpRequest();
     console.log(xhr)
-    //open - type, url, async?
+    //open - (method, url, async?)
     xhr.open('GET', 'http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=9CIHM7uD1nGkFdHLsNqeGUsOZi4JZUJk&limit=50', true);
 
     console.log(xhr.status);
 
     xhr.onload = () => {
         // console.log('READYSTATE: ', xhr.responseText);
-        let data = xhr.responseText;
-            console.log(data.length);
-            console.log(data.title);
-        let dataLength = data.length;
+        let gifObject = JSON.parse(xhr.response).data;
+            console.log(gifObject);
+        let numOfGifs = gifObject.length;
+        console.log(numOfGifs);
         if (this.status == 200){
             for (let gif of data){
-                console.log(gif);
+                console.log(gif.title);
                 for (let x in gif){
                     console.log(x);
                 }
