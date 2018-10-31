@@ -1,22 +1,38 @@
+class Gif{
+    constructor(title, still, moving){
+        this.title = title;
+        this.stillGif = still;
+        this.movingGif = moving;
+    }
+}
 
-
-let loadText = () => {
+let showGif = () => {
     //Creates request
     let xhr = new XMLHttpRequest();
-    // console.log(xhr)
+    console.log(xhr)
     //open - type, url, async?
     xhr.open('GET', 'http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=9CIHM7uD1nGkFdHLsNqeGUsOZi4JZUJk&limit=50', true);
 
-    // console.log(xhr.response);
-
-
+    console.log(xhr.status);
 
     xhr.onload = () => {
-        console.log('READYSTATE: ', xhr.readyState);
+        // console.log('READYSTATE: ', xhr.responseText);
+        let data = xhr.responseText;
+            console.log(data.length);
+            console.log(data.title);
+        let dataLength = data.length;
         if (this.status == 200){
-            // console.log(this.response);
-            let gifs = JSON.parse(this.responseText);
-            console.log(gifs);
+            for (let gif of data){
+                console.log(gif);
+                for (let x in gif){
+                    console.log(x);
+                }
+                // let title = data.title;
+                
+                // let stillGif = data.images.original_still.url;
+                // let movingGif = data.images.original.url;
+            }
+            // console.log(data);
         }
     }
  
@@ -39,7 +55,7 @@ let loadText = () => {
 
 }
 
-document.getElementById('button').addEventListener('click', loadText)
+document.getElementById('button').addEventListener('click', showGif)
 
 // readyState Values
 // 0: request not initialized
@@ -53,49 +69,54 @@ document.getElementById('button').addEventListener('click', loadText)
 // 400 = Forbidden
 // 403 Not Found
 
-let imagesOnPage = new Array();
-let currentPage = 1;
-let imagesPerPage = 10;
-const events = 
-Array.prototype.slice.call(document.querySelectorAll(".images"));
-
-// console.log(events);
-
-const totalPages = () => Math.ceil(events.length / imagesPerPage);
-
-// console.log(totalPages.length)
-
-let previousPage = () => {currentPage -= 1; createPage()}
-let nextPage = () => {currentPage += 1; createPage()}
 
 
 
-//Dispaly list on page
-const createPage = () => {
-    let firstImage = ((currentPage - 1)) * imagesPerPage;
-    let lastImage = firstImage + imagesPerPage;
-    for (i = 0; i < imagesOnPage.length; i++){
-        imagesOnPage[i].classList.add("hidden")
-            //Hides other images
-    }
-    imagesOnPage = events.slice(firstImage, lastImage);
-    showImages();
-    check();
-}
 
-const showImages = () => {
-    for (i = 0; i < imagesOnPage.length; i++){
-        imagesOnPage[i].classList.remove("hidden")
-    }
-}
 
-const check = () => {
-    document.getElementById("next").disabled = currentPage == numOfPages ? true : false;
-    document.getElementById("previous").disabled = currentPage == 1 ? true : false;
+// let imagesOnPage = new Array();
+// let currentPage = 1;
+// let imagesPerPage = 10;
+// const events = 
+// Array.prototype.slice.call(document.querySelectorAll(".images"));
 
-  }
+// // console.log(events);
 
-const start = () => createPage();
+// const totalPages = () => Math.ceil(events.length / imagesPerPage);
 
-let numOfPages = totalPages(); 
-window.onload = start;
+// // console.log(totalPages.length)
+
+// let previousPage = () => {currentPage -= 1; createPage()}
+// let nextPage = () => {currentPage += 1; createPage()}
+
+
+
+// //Dispaly list on page
+// const createPage = () => {
+//     let firstImage = ((currentPage - 1)) * imagesPerPage;
+//     let lastImage = firstImage + imagesPerPage;
+//     for (i = 0; i < imagesOnPage.length; i++){
+//         imagesOnPage[i].classList.add("hidden")
+//             //Hides other images
+//     }
+//     imagesOnPage = events.slice(firstImage, lastImage);
+//     showImages();
+//     check();
+// }
+
+// const showImages = () => {
+//     for (i = 0; i < imagesOnPage.length; i++){
+//         imagesOnPage[i].classList.remove("hidden")
+//     }
+// }
+
+// const check = () => {
+//     document.getElementById("next").disabled = currentPage == numOfPages ? true : false;
+//     document.getElementById("previous").disabled = currentPage == 1 ? true : false;
+
+//   }
+
+// const start = () => createPage();
+
+// let numOfPages = totalPages(); 
+// window.onload = start;
