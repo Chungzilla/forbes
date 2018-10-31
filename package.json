@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/Chungzilla/forbes#readme",
   "dependencies": {
+    "config": "^2.0.1"
+  },
+  "devDependencies": {
     "dotenv": "^6.1.0"
   }
 }

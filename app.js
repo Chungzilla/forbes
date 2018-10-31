@@ -1,20 +1,12 @@
-require('dotenv').config()
 
-// alert("I'm working!!!")
 
-let xhr = new XMLHttpRequest();
-
-xhr.onload = () =>{
-    if (xhr.status >= 200 && xhr.status < 300){
-        console.log('success!, xhr');
-    } else {
-        console.log('This request failed.')
-    }
-    console.log('This always runs...')
+axios.get(`http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=${process.env.GIPHY_KEY}&limit=50`).then((response) => {
+    console.log(response.data);
+    let data = response.data
 }
+);
 
-xhr.open('GET', 'https://api.giphy.com/v1/gifs/cats&api_key=GIPHY2_API&limit=50')
-xhr.send();
+
 
 let imagesOnPage = new Array();
 let currentPage = 1;
