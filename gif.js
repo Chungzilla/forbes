@@ -1,8 +1,8 @@
 class Gif{
-    constructor(title, still, moving){
+    constructor(title, stillGif, movingGif){
         this.title = title;
-        this.stillGif = still;
-        this.movingGif = moving;
+        this.stillGif = stillGif;
+        this.movingGif = movingGif;
     }
 }
 
@@ -11,29 +11,40 @@ let showGif = () => {
     let xhr = new XMLHttpRequest();
     console.log(xhr)
     //open - (method, url, async?)
-    xhr.open('GET', 'http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=9CIHM7uD1nGkFdHLsNqeGUsOZi4JZUJk&limit=50', true);
+    xhr.open('GET', 'http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=kyQhfV4Bysw7t6wFTbgjOVEusLvwmGjV&limit=50', true);
 
     console.log(xhr.status);
 
     xhr.onload = () => {
-        // console.log('READYSTATE: ', xhr.responseText);
+        console.log('READYSTATE: ', xhr.readyState);
         let gifObject = JSON.parse(xhr.response).data;
             console.log(gifObject);
         let numOfGifs = gifObject.length;
-        console.log(numOfGifs);
-        if (this.status == 200){
-            for (let gif of data){
-                console.log(gif.title);
-                for (let x in gif){
-                    console.log(x);
-                }
-                // let title = data.title;
+        // console.log(numOfGifs);
+        // if (this.status == 200){
+            // console.log(gifObject[0])
+
+            gifObject.forEach(function(gif){
+                let title = gif.title;
+                console.log(title);
+                let stillGif = gif.images.original_still.url;
+                let movingGif = gif.images.original.url; 
+                
+                displayTitle.innerHTML = title;
+                displayStill.src = stillGif;
+                displayGif.src = movingGif;
+                
+            });
+
+            
+                // for (let x in gif){
+                //     let title = x.title;
+                //     console.log(title);
+                // }
                 
                 // let stillGif = data.images.original_still.url;
                 // let movingGif = data.images.original.url;
-            }
-            // console.log(data);
-        }
+        // }
     }
  
 
@@ -54,6 +65,8 @@ let showGif = () => {
 
 
 }
+
+
 
 document.getElementById('button').addEventListener('click', showGif)
 

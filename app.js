@@ -8,10 +8,6 @@ let displayGif = document.createElement('img')
 let gifWrap = document.createElement('div')
 gifWrap.id = 'gifWrap'
 
-gifWrap.appendChild(displayTitle, displayStill, displayGif)
+gifWrap.append(displayTitle, displayStill, displayGif);
 
 gifGallery.append(gifWrap);
-
-let setup = (i) => {
-    displayGif.src = movingGif;
-}
