@@ -29,10 +29,25 @@ let showGif = () => {
                 console.log(title);
                 let stillGif = gif.images.original_still.url;
                 let movingGif = gif.images.original.url; 
+                console.log(movingGif);
                 
-                displayTitle.innerHTML = title;
+                //This will dynamically create elements need to render the images
+
+                let gifGallery = document.getElementById('gallery')
+                let displayTitle = document.getElementById('title')
+                let displayStill = document.createElement('img')
+                let displayGif = document.createElement('img')
+
+                let gifWrap = document.createElement('div')
+                gifWrap.id = 'gifWrap'
+
+                gifWrap.append(displayStill);
+
+                gifGallery.append(gifWrap);
+
+                // displayTitle.innerHTML = title;
                 displayStill.src = stillGif;
-                displayGif.src = movingGif;
+                // displayGif.src = movingGif;
                 
             });
 
