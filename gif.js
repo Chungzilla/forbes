@@ -50,13 +50,15 @@ let showGifs = () => {
                 let displayGif = document.createElement('img')
                 let displayStill = document.createElement('img')
                 //Adding class to hide images by default
-                displayStill.classList.add("images", "hidden")
+                // displayStill.classList.add("images", "hidden")
 
-                //Displays only the first 10 images
-              
-                // for (i = 1; i < 51; i++) {
-                //     displayStill.id = i;
-                // }
+                // Displays only the first 10 images
+                let x = 1
+                while (x < 51) {
+                    displayStill.id = x;
+                    console.log(x);
+                    x++;
+                }
                 // // let i = 1
                 // // do {
                 // //     displayStill.id = i;
