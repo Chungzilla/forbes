@@ -1,10 +1,24 @@
 
 
-axios.get(`http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=${process.env.GIPHY_KEY}&limit=50`).then((response) => {
+axios.get("http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=9CIHM7uD1nGkFdHLsNqeGUsOZi4JZUJk&limit=50").then((response) => {
     console.log(response.data);
     let data = response.data
 }
 );
+
+let loadText = () => {
+    let xhr = new XMLHttpRequest();
+    console.log(xhr)
+    //open - type, url, async?
+    xhr.open('GET', 'http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=9CIHM7uD1nGkFdHLsNqeGUsOZi4JZUJk&limit=50', true);
+
+    xhr.onload = () => {
+        if (this.status == 200){
+            console.log(tis.response);
+        }
+    }  
+        xhr.send(); 
+}
 
 
 
